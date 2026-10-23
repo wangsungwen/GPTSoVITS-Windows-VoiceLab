@@ -1,6 +1,18 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.8。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.9。
+
+## v1.9 選用 OpenJTalk 預編譯修復
+
+若 Windows 安裝停在 pyopenjtalk 0.4.1 的 Getting requirements to build wheel，可執行 09_Repair_OpenJTalk.cmd，再執行 01_Install.cmd。這是選用修復，不變更預設 01 的套件方案。
+
+09 會備份官方 requirements.txt 與 install.ps1，將 pyopenjtalk>=0.4.1 改為 pyopenjtalk-plus==0.4.1.post10 並指定 wheel；安裝 numpy 1.26.4，保留既有相容性 constraints；停用原版辭典覆蓋步驟，改用 fork 隨附辭典。最後檢查匯入、必要函式、辭典與文字前端。修復成功訊息不等於全套安裝完成，仍須執行 01。
+
+pyopenjtalk-plus 是 tsukumijima 維護的衍生套件，保留 import pyopenjtalk 介面並提供 CPython 3.10 Windows x86-64 wheel，無需在本機編譯該套件。其日文辭典與部分讀音處理不同於原版；不宣稱日文結果完全相同。如果原版 pyopenjtalk 已安裝，09 會拒絕混裝；已能正常運作的電腦不需要執行 09。其他相依套件若仍需編譯，應依新日誌另行處理。
+
+已驗證：固定官方來源上的備份、冪等修改與未知來源拒絕；Linux 真實套件的 API、辭典、g2p 與 frontend labels。Windows 執行與模型語音仍待實機驗證。
+
+來源：https://pypi.org/project/pyopenjtalk-plus/0.4.1.post10/ 與 https://github.com/tsukumijima/pyopenjtalk-plus 。v1.6 Word／PDF 手冊保留原流程，本節為增補。
 
 ## v1.8 Conda 警告處理修正
 

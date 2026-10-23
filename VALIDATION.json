@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.8",
+  "kit_version": "1.9",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -71,5 +71,15 @@
     "both_helpers_stderr_merge_and_logs": "PASS",
     "both_pinned_source_patch_idempotence": "PASS",
     "Windows_PowerShell_integration": "NOT_TESTED"
+  },
+  "openjtalk_optional_v1_9": {
+    "provider": "pyopenjtalk-plus==0.4.1.post10",
+    "windows_cp310_wheel": "PyPI official listing verified",
+    "requirements_and_dictionary_patch": "PASS on pinned source",
+    "backups_idempotence_unknown_source_refusal": "PASS",
+    "original_provider_collision": "refuses when original pyopenjtalk distribution is installed",
+    "Windows_runtime": "NOT_TESTED",
+    "Japanese_TTS_quality": "NOT_TESTED; fork dictionary differs",
+    "actual_Linux_runtime": "PASS with numpy 1.26.4 and pydantic 2.10.6: import, required APIs, bundled dictionary, g2p and frontend labels"
   }
 }

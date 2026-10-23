@@ -1,5 +1,5 @@
 {
-  "version": "1.8",
+  "version": "1.9",
   "date": "2026-10-24",
   "cmd_static_checks": [
     {
@@ -49,6 +49,12 @@
       "target": "scripts/repair_webui.ps1",
       "status": "PASS",
       "sha256": "495eac52c4ebbe237cc638efd6e0c2839d847f092e3267eea85e48acc9af4572"
+    },
+    {
+      "cmd": "09_Repair_OpenJTalk.cmd",
+      "target": "scripts/repair_openjtalk.ps1",
+      "status": "PASS (static path and exit-code review)",
+      "sha256": "fc561b34d007c480a8edd5eb6176ec0c687254fe4fe5a61ab0b7376f87f0703c"
     }
   ],
   "python_syntax": "PASS",
@@ -61,8 +67,10 @@
     "finish_install.py": "45db1412a252fef12b91a57424733377fce249c452b48771a8ddc7b73d4d0892",
     "install.ps1": "0825c1abb16b9976dc5d8c67697819225b6d34a516cba5ca9ca860a984d6ddee",
     "make_video.py": "30468a9e637d2bb7c6c0ed18ac34fd051918f049f591bbcfa4f3f321449c855e",
+    "openjtalk_plus.py": "8bb7e6026c0b1fe57915d9a3713db67711adf66df0f4a55cfdf3b057bbfbec76",
     "pip_logged_runner.py": "f22de1baaa546d907b42c800517dbdccd5ca1be2d6db3fdaf32be931382d54f8",
     "prepare_reference.py": "a61c27154cc6618221994e28307a1c1dc03bc2c4574e6dd3b1faced226d57b00",
+    "repair_openjtalk.ps1": "0786aa096903013076c75ad75c7ae4fb8c861ef7b0c9cdd17938b4858ab78a9d",
     "repair_webui.ps1": "66c5e99fc209ec9cfb32565746926a7a24134489f6c9066b4444ab5c52df0504",
     "start.ps1": "00d12eaa632f7196a5e0e315aef74691330bceb834a51bd14524a8b1bd2c0c94",
     "webui_smoke.py": "d4bbb04943de9915a42a7d5ee78c5eea951a509496bde61550f12cec98d0515b"
