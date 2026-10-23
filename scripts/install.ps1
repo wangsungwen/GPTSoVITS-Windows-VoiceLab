@@ -121,6 +121,7 @@ sys.exit(0 if valid else 1)
         $constraints = "$Kit\pip-constraints.txt"
         @('torch==2.7.1','torchaudio==2.7.1','torchvision==0.22.1','gradio==4.44.1','fastapi==0.115.6','starlette==0.41.3','pydantic==2.10.6','jinja2==3.1.6','huggingface-hub==0.36.0') | Set-Content -Path $constraints -Encoding ASCII
         $env:PIP_CONSTRAINT = $constraints
+        Run-Python -CommandArgs @("$PSScriptRoot\opencc_windows.py",'apply','--repo',$Repo)
         $officialInstaller = "$Repo\install.ps1"
         $officialText = [System.IO.File]::ReadAllText($officialInstaller)
         $before = 'Invoke-Pip torch torchcodec --index-url'
@@ -177,6 +178,7 @@ sys.exit(0 if valid else 1)
         # Match torchaudio to the torch build installed by the official installer.
         Run-Python -CommandArgs @("$PSScriptRoot\finish_install.py",'--repo',$Repo,'--device',$Device)
         Run-Python -CommandArgs @("$PSScriptRoot\doctor.py",'--repo',$Repo,'--require-cuda')
+        Run-Python -CommandArgs @("$PSScriptRoot\opencc_windows.py",'check')
         Run-Python -CommandArgs @("$PSScriptRoot\webui_smoke.py")
         Run-Python -CommandArgs @('-m','pip','freeze') | Set-Content -Encoding UTF8 "$Kit\logs\installed-packages.txt"
     } finally { Pop-Location }

@@ -1,6 +1,22 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.9。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.10。
+
+## v1.10 OpenCC 官方 Windows wheel
+
+安裝入口將 requirements.txt 中的 --no-binary=opencc 改成 --only-binary=opencc，並固定官方 opencc==1.4.2。官方已提供 CPython 3.10／Windows x86-64 wheel；沿用同一 OpenCC 套件，不更換為其他實作。requirements.txt 的原始內容先備份為 requirements.txt.before-opencc-wheel。保留既有 OpenJTalk Plus 修復與其他依賴，並在安裝驗收加入 s2tw／t2s 實際轉換檢查。
+
+更新既有電腦時，只更新 scripts/install.ps1 與 scripts/opencc_windows.py，再執行 01_Install.cmd。已在 Linux 實測官方 1.4.2 wheel 匯入與繁簡轉換；Windows 安裝仍須實機驗證。
+
+依賴清單中的 jieba_fast 0.53 仍含 C 擴充。若未安裝 Microsoft C++ 組建工具，請先安裝 Visual Studio Build Tools 的 Desktop development with C++／C++ build tools 工作負載，包含 MSVC x64/x86 與 Windows SDK。新安裝可使用：
+
+```powershell
+winget install --id Microsoft.VisualStudio.2022.BuildTools --exact --override "--wait --passive --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
+```
+
+若 Build Tools 已存在但缺少 C++ 元件，請在 Visual Studio Installer 選 Modify 加入工作負載；WinGet upgrade 不會自動新增元件。安裝要求重新啟動時先重開機。此步驟可能下載數 GB，視已安裝元件而異。不要以刪除 jieba_fast 或改用其他套件隱藏原生依賴。
+
+來源：https://pypi.org/project/OpenCC/1.4.2/ 、https://github.com/deepcs233/jieba_fast/blob/master/setup.py 、https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio 。
 
 ## v1.9 選用 OpenJTalk 預編譯修復
 

@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.9",
+  "kit_version": "1.10",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -81,5 +81,13 @@
     "Windows_runtime": "NOT_TESTED",
     "Japanese_TTS_quality": "NOT_TESTED; fork dictionary differs",
     "actual_Linux_runtime": "PASS with numpy 1.26.4 and pydantic 2.10.6: import, required APIs, bundled dictionary, g2p and frontend labels"
+  },
+  "opencc_wheel_v1_10": {
+    "official_win_cp310_wheel": "PyPI 1.4.2 verified",
+    "requirement_policy_backup_and_idempotence": "PASS",
+    "preserves_OpenJTalk_Plus_requirement": "PASS",
+    "actual_Linux_wheel_import_s2tw_t2s": "PASS",
+    "Windows_installation": "NOT_TESTED",
+    "remaining_native_build": "jieba_fast requires a C compiler; source setup reviewed"
   }
 }
