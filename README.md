@@ -2,6 +2,13 @@
 
 Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.6。
 
+## 操作說明書下載
+
+- [Word 操作說明書](docs/GPTSoVITS_Windows_VoiceLab_操作說明書_v1.6.docx)
+- [PDF 操作說明書](docs/GPTSoVITS_Windows_VoiceLab_操作說明書_v1.6.pdf)
+
+兩份均為 10 頁繁體中文手冊，涵蓋首次安裝、WebUI 語音克隆、參考錄音、14 頁批次配音、單頁重做、影片合成、微調備份與故障排除。已正常啟動介面者可從第 4 節開始。
+
 ## 快速開始
 
 1. 使用 Code → Download ZIP，完整解壓後將專案放在 `D:\VoiceLab`。路徑使用英文且不含空白。
