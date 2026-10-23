@@ -43,4 +43,3 @@ Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音�
 使用者於 2026-10-24 回報 Windows 安裝與 WebUI 修復檢查通過、介面可使用。v1.6 在 Linux 完成靜態檢查、封裝與圖片比對；未在此環境重新執行 Windows 安裝、真實模型推理、訓練或完整報告影片流程。
 
 官方專案：https://github.com/RVC-Boss/GPT-SoVITS
-

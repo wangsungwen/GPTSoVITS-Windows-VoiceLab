@@ -1,0 +1,69 @@
+{
+  "version": "1.6",
+  "date": "2026-10-24",
+  "cmd_static_checks": [
+    {
+      "cmd": "01_Install.cmd",
+      "target": "scripts/install.ps1",
+      "status": "PASS",
+      "sha256": "7c5192b5d76d35bf8bcff857017798da55e582b0c35925d97cbce81ccd537102"
+    },
+    {
+      "cmd": "02_Check_GPU_Models.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "1b6010483ba7bb80d126568fba8a74c60e25e0a426c6cadb0b683e58851ea07a"
+    },
+    {
+      "cmd": "03_Start_WebUI.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "978aa5c17a3adac2d794189240de73002c0fc5ed9a3ed1f547973fe9a054c30f"
+    },
+    {
+      "cmd": "04_Start_API.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "06772960cc1b8de691e996f911f250c59e689d3158a25c6175cc17f78219e127"
+    },
+    {
+      "cmd": "05_Prepare_Reference.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "a7f3baa63b813235ebbb106edab7cb122641f05aa89efad52531307623073668"
+    },
+    {
+      "cmd": "06_Batch_14_Slides.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "c8a2cceb9046047d4af4c3703011895e556a63870b016b56e5a243c286d148b2"
+    },
+    {
+      "cmd": "07_Make_Presentation_Video.cmd",
+      "target": "scripts/start.ps1",
+      "status": "PASS",
+      "sha256": "8634662c73ea991844b26393aed22e8c66ece998a856b3dad21cbe934dadce98"
+    },
+    {
+      "cmd": "08_Repair_WebUI.cmd",
+      "target": "scripts/repair_webui.ps1",
+      "status": "PASS",
+      "sha256": "495eac52c4ebbe237cc638efd6e0c2839d847f092e3267eea85e48acc9af4572"
+    }
+  ],
+  "python_syntax": "PASS",
+  "ps1_dependency_and_paths": "reviewed",
+  "windows_execution_of_v1_5": "not executed in this Linux environment",
+  "scripts_sha256": {
+    "batch_tts.py": "b9d002b1e8a2854d7259192396139ae43dc16090445836f30a74a9fd94a9ad26",
+    "common.ps1": "104bc2cc786b80f08a8854fcab264bdf10a38e09b94f919daeb746a76b1c18d2",
+    "doctor.py": "4fbfced7bc03e8010057b85d8f26ec3e5cafcdc1fd30c14f56e91b4b37e02166",
+    "finish_install.py": "45db1412a252fef12b91a57424733377fce249c452b48771a8ddc7b73d4d0892",
+    "install.ps1": "50ef5f26eb88c5c1ee32b2bebea18784b7f6c65f74711608a8550696183c1996",
+    "make_video.py": "30468a9e637d2bb7c6c0ed18ac34fd051918f049f591bbcfa4f3f321449c855e",
+    "prepare_reference.py": "a61c27154cc6618221994e28307a1c1dc03bc2c4574e6dd3b1faced226d57b00",
+    "repair_webui.ps1": "66c5e99fc209ec9cfb32565746926a7a24134489f6c9066b4444ab5c52df0504",
+    "start.ps1": "00d12eaa632f7196a5e0e315aef74691330bceb834a51bd14524a8b1bd2c0c94",
+    "webui_smoke.py": "d4bbb04943de9915a42a7d5ee78c5eea951a509496bde61550f12cec98d0515b"
+  }
+}

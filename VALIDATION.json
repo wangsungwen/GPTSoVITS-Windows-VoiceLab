@@ -1,0 +1,59 @@
+{
+  "python_syntax": "PASS",
+  "windows_powershell_execution": "NOT_TESTED",
+  "cuda_and_real_model_inference": "NOT_TESTED",
+  "14_slide_mock_API_WAV_output": "PASS (synthetic silence, not cloned speech)",
+  "overwrite_protection": "PASS",
+  "invalid_reference_rejection": "PASS",
+  "real_ffmpeg_reference_conversion": "PASS",
+  "real_ffmpeg_1080p_H264_AAC_encoding": "PASS",
+  "installer_fix_v1_1": {
+    "official_release": "26.9.4-0",
+    "checksum_file_matches_release_API": "PASS",
+    "actual_exe_sha256": "PASS",
+    "actual_exe_size": 151758384,
+    "sha256": "43638698f5ee811debae27b0dc3ab5c0300129bd400a847376c4bd2f6be15ceb",
+    "windows_execution": "NOT_TESTED"
+  },
+  "installer_fix_v1_2": {
+    "metadata_probe_test_cases": 4,
+    "metadata_probe": "PASS",
+    "windows_reinstall_and_conda_create": "NOT_TESTED",
+    "upstream_workaround": "https://github.com/conda/conda-launchers/issues/35"
+  },
+  "installer_fix_v1_3": {
+    "upstream_replacements": 3,
+    "patch_idempotence": "PASS",
+    "windows_cp310_cu128_wheels": "official index confirms torch 2.7.1 and torchaudio 2.7.1",
+    "windows_install_and_GPU_inference": "NOT_TESTED"
+  },
+  "webui_fix_v1_4": {
+    "test_platform": "Linux Python 3.12 isolated environment",
+    "gradio": "4.44.1",
+    "fastapi": "0.115.6",
+    "starlette": "0.41.3",
+    "pydantic": "2.10.6",
+    "jinja2": "3.1.6",
+    "huggingface_hub": "0.36.0",
+    "user_site_enabled": false,
+    "test_routes": {
+      "/test/": 200,
+      "/test/config": 200,
+      "/test/info": 200
+    },
+    "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
+  },
+  "kit_version": "1.6",
+  "user_report_2026_10_24": {
+    "install_checks": "PASSED (user log)",
+    "webui_repair_checks": "PASSED (user log)",
+    "webui_usable": "user confirmed 可以了",
+    "voice_quality_batch_video_training": "not independently verified"
+  },
+  "full_folder_package": {
+    "explicit_zip_directory_entries": true,
+    "slide_png_count": 14,
+    "installed_models_and_environment": "not included; directories only",
+    "personal_recordings_and_generated_audio": "not available in workspace"
+  }
+}
