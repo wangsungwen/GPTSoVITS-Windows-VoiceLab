@@ -1,6 +1,10 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.7。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.8。
+
+## v1.8 Conda 警告處理修正
+
+官方 Invoke-Conda 同樣會在 PowerShell 5.1 的 stderr 擷取階段因一般警告而中止。v1.8 將 Conda 也交由記錄工具執行，合併輸出並依原始退出碼判定結果。Conda 日誌位於 logs/conda-時間-程序編號-console.log；pip 日誌規則不變。更新 scripts/install.ps1 與 scripts/pip_logged_runner.py 後，再執行 01_Install.cmd。這會沿用既有環境與模型，不會把真正的非零退出碼當成成功。Linux 已測試帶警告的成功與失敗情境；Windows 整合尚待實機回報。
 
 ## v1.7 相依套件安裝日誌修正
 

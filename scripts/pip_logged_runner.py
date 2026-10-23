@@ -1,6 +1,6 @@
-"""Run pip with persistent logs and merge stderr before PowerShell can intercept it.
+"""Run pip or Conda with logs, merging stderr before PowerShell can intercept it.
 
-Called by the patched upstream Invoke-Pip helper; arguments are pip install args.
+Called by patched Invoke-Pip, or Invoke-Conda with --voicelab-conda.
 """
 import datetime
 import os
@@ -13,12 +13,21 @@ def main():
     log_dir = Path(os.environ['VOICELAB_INSTALL_LOG_DIR'])
     log_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S-%f')
-    stem = log_dir / f'pip-{stamp}-{os.getpid()}'
+    args = sys.argv[1:]
+    is_conda = bool(args and args[0] == '--voicelab-conda')
+    label = 'conda' if is_conda else 'pip'
+    stem = log_dir / f'{label}-{stamp}-{os.getpid()}'
     detail_log = str(stem) + '.log'
     console_log = str(stem) + '-console.log'
-    print(f'Pip detailed log: {detail_log}', flush=True)
-    print(f'Pip console log: {console_log}', flush=True)
-    command = [sys.executable, '-m', 'pip', '--log', detail_log, 'install', *sys.argv[1:]]
+    print(f'{label} console log: {console_log}', flush=True)
+    if is_conda:
+        executable = Path(os.environ['VOICELAB_CONDA_EXE'])
+        if not executable.is_file():
+            raise FileNotFoundError(f'Conda executable missing: {executable}')
+        command = [str(executable), 'install', '-y', '-q', '-c', 'conda-forge', *args[1:]]
+    else:
+        print(f'pip detailed log: {detail_log}', flush=True)
+        command = [sys.executable, '-m', 'pip', '--log', detail_log, 'install', *args]
     env = os.environ.copy()
     env['PYTHONIOENCODING'] = 'utf-8'
     env['PYTHONUNBUFFERED'] = '1'
@@ -33,8 +42,8 @@ def main():
                 # before the upstream function can read pip's actual exit code.
                 print(line, end='', flush=True)
             code = proc.wait()
-    print(f'Pip exit code: {code}', flush=True)
-    print(f'Pip console log: {console_log}', flush=True)
+    print(f'{label} exit code: {code}', flush=True)
+    print(f'{label} console log: {console_log}', flush=True)
     return code
 
 
@@ -42,5 +51,5 @@ if __name__ == '__main__':
     try:
         sys.exit(main())
     except Exception as exc:
-        print(f'VoiceLab pip runner failed: {exc}', flush=True)
+        print(f'VoiceLab installer runner failed: {exc}', flush=True)
         sys.exit(1)

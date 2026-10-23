@@ -152,6 +152,21 @@ sys.exit(0 if valid else 1)
         } elseif (!$officialText.Contains($newPipCall)) {
             throw 'Unexpected upstream pip helper. Stop rather than patch an unknown installer.'
         }
+        # v1.8: Conda warnings must also be judged by the native exit code.
+        $env:VOICELAB_CONDA_EXE = $Conda
+        $oldCondaCall = '$output = & conda install -y -q -c conda-forge @Args 2>&1'
+        $newCondaCall = '$output = & python $env:VOICELAB_PIP_RUNNER --voicelab-conda @Args'
+        if ($officialText.Contains($oldCondaCall)) {
+            $condaBackup = "$officialInstaller.before-kit-v1.8"
+            if (!(Test-Path -LiteralPath $condaBackup)) {
+                Copy-Item -LiteralPath $officialInstaller -Destination $condaBackup
+            }
+            $officialText = $officialText.Replace($oldCondaCall, $newCondaCall)
+            [System.IO.File]::WriteAllText($officialInstaller, $officialText, (New-Object System.Text.UTF8Encoding($true)))
+        } elseif (!$officialText.Contains($newCondaCall)) {
+            throw 'Unexpected upstream conda helper. Stop rather than patch an unknown installer.'
+        }
+        Write-Host '[5/6] Conda warning handling fixed; persistent logs: logs/conda-*-console.log'
         Write-Host '[5/6] Persistent pip logs enabled: logs/pip-*-console.log and logs/pip-*.log'
         Write-Host '[5/6] Installing torch 2.7.1 + torchaudio 2.7.1. CUDA build follows Device option.'
         Write-Host '[5/6] Installing official dependencies and models. This step downloads large files.'

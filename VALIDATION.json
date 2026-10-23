@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.7",
+  "kit_version": "1.8",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -63,5 +63,13 @@
     "pinned_upstream_patch_idempotence": "PASS",
     "Windows_PowerShell_integration": "NOT_TESTED",
     "actual_failed_dependency": "UNKNOWN; requires new pip log"
+  },
+  "conda_logging_v1_8": {
+    "conda_warning_exit_0": "PASS (mock executable)",
+    "conda_failure_exit_11": "PASS (mock executable)",
+    "pip_success_and_failure_exit_7": "PASS (mock pip)",
+    "both_helpers_stderr_merge_and_logs": "PASS",
+    "both_pinned_source_patch_idempotence": "PASS",
+    "Windows_PowerShell_integration": "NOT_TESTED"
   }
 }

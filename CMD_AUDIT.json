@@ -1,5 +1,5 @@
 {
-  "version": "1.7",
+  "version": "1.8",
   "date": "2026-10-24",
   "cmd_static_checks": [
     {
@@ -59,9 +59,9 @@
     "common.ps1": "104bc2cc786b80f08a8854fcab264bdf10a38e09b94f919daeb746a76b1c18d2",
     "doctor.py": "4fbfced7bc03e8010057b85d8f26ec3e5cafcdc1fd30c14f56e91b4b37e02166",
     "finish_install.py": "45db1412a252fef12b91a57424733377fce249c452b48771a8ddc7b73d4d0892",
-    "install.ps1": "08f8c6049a45b7def2f58d1485a38a10b220ea60b0c679d57ea30b3c37879d65",
+    "install.ps1": "0825c1abb16b9976dc5d8c67697819225b6d34a516cba5ca9ca860a984d6ddee",
     "make_video.py": "30468a9e637d2bb7c6c0ed18ac34fd051918f049f591bbcfa4f3f321449c855e",
-    "pip_logged_runner.py": "16b61e94f49d8d69c01778f65b2ac130046757eff6459b196bb42eb5134b4d33",
+    "pip_logged_runner.py": "f22de1baaa546d907b42c800517dbdccd5ca1be2d6db3fdaf32be931382d54f8",
     "prepare_reference.py": "a61c27154cc6618221994e28307a1c1dc03bc2c4574e6dd3b1faced226d57b00",
     "repair_webui.ps1": "66c5e99fc209ec9cfb32565746926a7a24134489f6c9066b4444ab5c52df0504",
     "start.ps1": "00d12eaa632f7196a5e0e315aef74691330bceb834a51bd14524a8b1bd2c0c94",
