@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.6",
+  "kit_version": "1.7",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -55,5 +55,13 @@
     "slide_png_count": 14,
     "installed_models_and_environment": "not included; directories only",
     "personal_recordings_and_generated_audio": "not available in workspace"
+  },
+  "pip_logging_v1_7": {
+    "fake_pip_success_and_exit_7": "PASS",
+    "stderr_merged_to_stdout": "PASS",
+    "persistent_console_and_detailed_logs": "PASS",
+    "pinned_upstream_patch_idempotence": "PASS",
+    "Windows_PowerShell_integration": "NOT_TESTED",
+    "actual_failed_dependency": "UNKNOWN; requires new pip log"
   }
 }

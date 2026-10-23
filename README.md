@@ -1,6 +1,12 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.6。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.7。
+
+## v1.7 相依套件安裝日誌修正
+
+針對 Windows PowerShell 在官方 Invoke-Pip 的 stderr 擷取階段提前中止、只顯示 subprocess-exited-with-error 的情況，新增 scripts/pip_logged_runner.py。每次 pip 安裝均在 logs 留下 pip-時間-程序編號.log 與 pip-時間-程序編號-console.log，保留實際套件與建置錯誤及退出碼；不會忽略安裝失敗。
+
+已安裝者只需更新 scripts/install.ps1 與 scripts/pip_logged_runner.py，再執行 01_Install.cmd。已有環境與模型目錄會沿用。這是錯誤輸出修正，不能保證解決尚未識別的依賴問題；若仍失敗，提供最新的 pip-*-console.log。成功／失敗及日誌保留已在 Linux 模擬 pip 驗證，Windows 整合仍待實機回報。Word／PDF 手冊維持 v1.6 基礎操作說明。
 
 ## 操作說明書下載
 

@@ -134,6 +134,25 @@ sys.exit(0 if valid else 1)
         } elseif (!$officialText.Contains($after)) {
             throw 'Unexpected upstream PyTorch installation command. Stop rather than patch an unknown installer.'
         }
+        # v1.7: preserve pip output before PowerShell 5.1 handles native stderr.
+        $env:VOICELAB_PIP_RUNNER = Join-Path $PSScriptRoot 'pip_logged_runner.py'
+        $env:VOICELAB_INSTALL_LOG_DIR = Join-Path $Kit 'logs'
+        if (!(Test-Path -LiteralPath $env:VOICELAB_PIP_RUNNER)) {
+            throw 'Missing scripts/pip_logged_runner.py. Update the complete scripts folder.'
+        }
+        $oldPipCall = '$output = & pip install @Args 2>&1'
+        $newPipCall = '$output = & python $env:VOICELAB_PIP_RUNNER @Args'
+        if ($officialText.Contains($oldPipCall)) {
+            $pipBackup = "$officialInstaller.before-kit-v1.7"
+            if (!(Test-Path -LiteralPath $pipBackup)) {
+                Copy-Item -LiteralPath $officialInstaller -Destination $pipBackup
+            }
+            $officialText = $officialText.Replace($oldPipCall, $newPipCall)
+            [System.IO.File]::WriteAllText($officialInstaller, $officialText, (New-Object System.Text.UTF8Encoding($true)))
+        } elseif (!$officialText.Contains($newPipCall)) {
+            throw 'Unexpected upstream pip helper. Stop rather than patch an unknown installer.'
+        }
+        Write-Host '[5/6] Persistent pip logs enabled: logs/pip-*-console.log and logs/pip-*.log'
         Write-Host '[5/6] Installing torch 2.7.1 + torchaudio 2.7.1. CUDA build follows Device option.'
         Write-Host '[5/6] Installing official dependencies and models. This step downloads large files.'
         $installArgs = @('run','--no-capture-output','-p',$EnvDir,'powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File',"$Repo\install.ps1",'-Device',$Device,'-Source',$Source)
