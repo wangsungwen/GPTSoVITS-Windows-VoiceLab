@@ -122,6 +122,7 @@ sys.exit(0 if valid else 1)
         @('torch==2.7.1','torchaudio==2.7.1','torchvision==0.22.1','gradio==4.44.1','fastapi==0.115.6','starlette==0.41.3','pydantic==2.10.6','jinja2==3.1.6','huggingface-hub==0.36.0') | Set-Content -Path $constraints -Encoding ASCII
         $env:PIP_CONSTRAINT = $constraints
         Run-Python -CommandArgs @("$PSScriptRoot\opencc_windows.py",'apply','--repo',$Repo)
+        Run-Python -CommandArgs @("$PSScriptRoot\openjtalk_plus.py",'auto','--repo',$Repo)
         $officialInstaller = "$Repo\install.ps1"
         $officialText = [System.IO.File]::ReadAllText($officialInstaller)
         $before = 'Invoke-Pip torch torchcodec --index-url'

@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.11",
+  "kit_version": "1.12",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -61,8 +61,8 @@
     "stderr_merged_to_stdout": "PASS",
     "persistent_console_and_detailed_logs": "PASS",
     "pinned_upstream_patch_idempotence": "PASS",
-    "Windows_PowerShell_integration": "NOT_TESTED",
-    "actual_failed_dependency": "UNKNOWN; requires new pip log"
+    "Windows_PowerShell_integration": "PASS in user logs",
+    "actual_failed_dependency": "identified pyopenjtalk and opencc source-build failures; repaired"
   },
   "conda_logging_v1_8": {
     "conda_warning_exit_0": "PASS (mock executable)",
@@ -70,7 +70,7 @@
     "pip_success_and_failure_exit_7": "PASS (mock pip)",
     "both_helpers_stderr_merge_and_logs": "PASS",
     "both_pinned_source_patch_idempotence": "PASS",
-    "Windows_PowerShell_integration": "NOT_TESTED"
+    "Windows_PowerShell_integration": "PASS in user logs"
   },
   "openjtalk_optional_v1_9": {
     "provider": "pyopenjtalk-plus==0.4.1.post10",
@@ -78,7 +78,7 @@
     "requirements_and_dictionary_patch": "PASS on pinned source",
     "backups_idempotence_unknown_source_refusal": "PASS",
     "original_provider_collision": "refuses when original pyopenjtalk distribution is installed",
-    "Windows_runtime": "NOT_TESTED",
+    "Windows_runtime": "PASS via user repair output: required API, dictionary and frontend",
     "Japanese_TTS_quality": "NOT_TESTED; fork dictionary differs",
     "actual_Linux_runtime": "PASS with numpy 1.26.4 and pydantic 2.10.6: import, required APIs, bundled dictionary, g2p and frontend labels"
   },
@@ -87,13 +87,32 @@
     "requirement_policy_backup_and_idempotence": "PASS",
     "preserves_OpenJTalk_Plus_requirement": "PASS",
     "actual_Linux_wheel_import_s2tw_t2s": "PASS",
-    "Windows_installation": "NOT_TESTED",
+    "Windows_installation": "PASS via subsequent installation checks and actual TTS user report",
     "remaining_native_build": "jieba_fast requires a C compiler; source setup reviewed"
   },
   "resampy_runtime_v1_11": {
     "direct_dependency": "resampy==0.4.3 with numpy<2.0",
     "Linux_package_filter_and_48k_to_16k_resampling": "PASS",
     "doctor_import_and_kaiser_best_check": "added",
-    "Windows_real_voice_inference": "NOT_TESTED"
+    "Windows_real_voice_inference": "PASS via user report after explicit install"
+  },
+  "windows_real_inference_user_report_2026_10_24": {
+    "source": "user-pasted terminal output and explicit success confirmation",
+    "gpu": "NVIDIA GeForce RTX 2080 Ti (11264 MiB)",
+    "torch": "2.7.1+cu128 (earlier user install log)",
+    "model_version": "v2Pro",
+    "gpt_weights": "GPT_SoVITS/pretrained_models/s1v3.ckpt",
+    "sovits_weights": "GPT_SoVITS/pretrained_models/v2Pro/s2Gv2Pro.pth",
+    "models_and_text_features": "PASS in user log",
+    "semantic_and_audio_synthesis": "PASS in user log; user confirmed success",
+    "reference_gpu_resampling_after_resampy": "PASS in user synthesis path",
+    "14_slide_batch_video_training": "not verified by this report",
+    "fresh_install_of_integrated_v1_12": "not rerun on Windows"
+  },
+  "integrated_release_v1_12": {
+    "fresh_auto_plus_preserve_original_collision_idempotence": "PASS (mock metadata with real pinned source)",
+    "installer_step_order_and_cmd_exit_paths": "PASS (static checks)",
+    "package_file_and_zip_integrity": "PASS (76 whitelisted files, explicit directory entries, byte comparison and ZIP CRC)",
+    "Windows_fresh_install": "NOT_TESTED after integration"
   }
 }

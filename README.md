@@ -1,6 +1,14 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.11。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.12。
+
+## v1.12 整合部署包
+
+已收到 RTX 2080 Ti 11 GB 在 Windows 上完成 v2Pro 真實英文語音合成成功的回報。本版整合先前所有修復，新增 VERSION 與 [v1.12 更新說明](docs/版本更新說明_v1.12.md)。新環境自動採用 pyopenjtalk-plus Windows wheel；已安裝原版 pyopenjtalk 的環境保留原版。Microsoft C++ Build Tools 仍是 jieba_fast 原生擴充的安裝前提。
+
+已正常運作者直接使用 03_Start_WebUI.cmd，不必重裝。更新時只覆蓋 CMD、scripts、VERSION 與說明，保留自己的模型、環境、講稿、錄音、圖片、配對表及輸出。Word／PDF 手冊為 v1.6 基礎流程，搭配 v1.12 更新說明使用。
+
+完整專案包含環境／模型／訓練資料／輸出目錄骨架、14 張 4K PNG 與操作手冊；沒有包含電腦上的實際安裝環境、模型權重或私人錄音。
 
 ## v1.11 補齊參考錄音重採樣相依套件
 
@@ -83,6 +91,7 @@ pyopenjtalk-plus 是 tsukumijima 維護的衍生套件，保留 import pyopenjta
 | 06_Batch_14_Slides | 依 slides.csv 產生逐頁旁白 |
 | 07_Make_Presentation_Video | 依圖片與旁白合成 1080p MP4 |
 | 08_Repair_WebUI | 固定網頁套件並驗證頁面與 schema 相容性 |
+| 09_Repair_OpenJTalk | 修復原版 OpenJTalk 建置失敗的環境 |
 
 ## 完整說明與程式碼
 

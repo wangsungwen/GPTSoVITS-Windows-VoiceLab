@@ -1,5 +1,5 @@
 {
-  "version": "1.11",
+  "version": "1.12",
   "date": "2026-10-24",
   "cmd_static_checks": [
     {
@@ -65,10 +65,10 @@
     "common.ps1": "104bc2cc786b80f08a8854fcab264bdf10a38e09b94f919daeb746a76b1c18d2",
     "doctor.py": "daa71d52d5d7fc889f189c45e8ca33265c076f9741a12c4afcefb4598f0077f8",
     "finish_install.py": "45db1412a252fef12b91a57424733377fce249c452b48771a8ddc7b73d4d0892",
-    "install.ps1": "9396bd6835350267f1b92edf1fab27bfa672869498096c4b67e4d2db31867866",
+    "install.ps1": "7dc5281352dfb5f58efc23d40ee0c3619a3b7bb4e2bdef70dce4a1bca37e38c2",
     "make_video.py": "30468a9e637d2bb7c6c0ed18ac34fd051918f049f591bbcfa4f3f321449c855e",
     "opencc_windows.py": "550fbc214b97c9da286a77656bd32d2bc8638e43e947d5690763816aaa3f79a2",
-    "openjtalk_plus.py": "8bb7e6026c0b1fe57915d9a3713db67711adf66df0f4a55cfdf3b057bbfbec76",
+    "openjtalk_plus.py": "c8c6078c7b06ce9081a47ed243d621ff73da350aa8cfa593f5e7af1157641520",
     "pip_logged_runner.py": "f22de1baaa546d907b42c800517dbdccd5ca1be2d6db3fdaf32be931382d54f8",
     "prepare_reference.py": "a61c27154cc6618221994e28307a1c1dc03bc2c4574e6dd3b1faced226d57b00",
     "repair_openjtalk.ps1": "0786aa096903013076c75ad75c7ae4fb8c861ef7b0c9cdd17938b4858ab78a9d",

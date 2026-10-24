@@ -1,4 +1,4 @@
-"""Opt-in prebuilt OpenJTalk fork for environments where upstream cannot build."""
+"""Configure a prebuilt OpenJTalk fork while preserving installed original providers."""
 import argparse
 import importlib.metadata
 from pathlib import Path
@@ -37,7 +37,7 @@ def apply(repo):
             if not backup.exists():
                 backup.write_bytes(path.read_bytes())
             path.write_text(text, encoding='utf-8-sig')
-    print('Opt-in OpenJTalk Plus requirements and bundled dictionary configured; backups preserved.')
+    print('OpenJTalk Plus requirements and bundled dictionary configured; backups preserved.')
 
 
 def check():
@@ -64,12 +64,22 @@ def check():
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('mode', choices=['apply', 'check'])
+    p.add_argument('mode', choices=['apply', 'auto', 'check'])
     p.add_argument('--repo', type=Path)
     a = p.parse_args()
-    if a.mode == 'apply':
+    if a.mode in ('apply', 'auto'):
         if a.repo is None:
-            p.error('--repo required for apply')
-        apply(a.repo)
+            p.error('--repo required for apply or auto')
+        if a.mode == 'auto':
+            try:
+                version = importlib.metadata.version('pyopenjtalk')
+            except importlib.metadata.PackageNotFoundError:
+                apply(a.repo)
+            else:
+                if SPEC in (a.repo / 'requirements.txt').read_text(encoding='utf-8-sig'):
+                    raise RuntimeError('Original and Plus requirements overlap. Restore the matching requirements before continuing.')
+                print(f'Preserving installed original pyopenjtalk {version}; no provider change.')
+        else:
+            apply(a.repo)
     else:
         check()
