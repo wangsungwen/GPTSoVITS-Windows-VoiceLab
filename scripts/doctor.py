@@ -13,12 +13,20 @@ def main():
     a = p.parse_args()
     errors = []
     report = {'python': sys.version, 'repo': str(a.repo), 'imports': {}}
-    for name in ['torch', 'torchaudio', 'gradio', 'transformers', 'librosa', 'fastapi', 'yaml', 'pyopenjtalk', 'g2p_en', 'opencc', 'pytorch_lightning']:
+    for name in ['torch', 'torchaudio', 'gradio', 'transformers', 'librosa', 'fastapi', 'yaml', 'pyopenjtalk', 'g2p_en', 'opencc', 'pytorch_lightning', 'resampy']:
         try:
             mod = importlib.import_module(name)
             report['imports'][name] = getattr(mod, '__version__', 'OK')
         except Exception as exc:
             errors.append(f'{name}: {exc}')
+    try:
+        import resampy
+        window, precision, rolloff = resampy.filters.get_filter('kaiser_best')
+        if len(window) == 0 or precision <= 0:
+            raise ValueError('Empty or invalid kaiser_best filter')
+        report['resampy_filter'] = 'kaiser_best loaded'
+    except Exception as exc:
+        errors.append(f'Reference audio resampling filter: {exc}')
     try:
         import torch
         report['cuda_available'] = torch.cuda.is_available()

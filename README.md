@@ -1,6 +1,22 @@
 # GPT-SoVITS Windows VoiceLab
 
-Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.10。
+Windows 10/11、NVIDIA GPU 的 GPT-SoVITS 部署、語音克隆與簡報配音工具。版本：1.11。
+
+## v1.11 補齊參考錄音重採樣相依套件
+
+若模型全部載入但合成時出現 ModuleNotFoundError: No module named resampy，原因是 TTS_infer_pack/TTS.py 的 GPU 重採樣路徑直接使用 resampy.filters.get_filter('kaiser_best')，原始相依清單未明確安裝該套件。
+
+新增 scripts/runtime-requirements.txt，固定 resampy==0.4.3 並保留 numpy<2.0；安裝流程在驗收前安裝這份補充清單。doctor 同時檢查匯入及 kaiser_best 濾波器資料。已在 Linux 實測載入濾波器與 48 kHz 轉 16 kHz；Windows 真實語音仍待驗證。
+
+已裝好環境者不必重裝模型，先關閉推理程序，再在 PowerShell 執行：
+
+```powershell
+$env:PYTHONNOUSERSITE = '1'
+$env:PYTHONPATH = ''
+& 'D:\VoiceLab\.runtime\miniforge\Scripts\conda.exe' run --no-capture-output -p 'D:\VoiceLab\.runtime\gptsovits' python -m pip install 'resampy==0.4.3' 'numpy<2.0'
+```
+
+補裝成功後重新啟動 03_Start_WebUI.cmd，再用 3–10 秒參考錄音與精確逐字稿試合成。來源：https://pypi.org/project/resampy/0.4.3/ 。
 
 ## v1.10 OpenCC 官方 Windows wheel
 

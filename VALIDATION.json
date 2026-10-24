@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.10",
+  "kit_version": "1.11",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -89,5 +89,11 @@
     "actual_Linux_wheel_import_s2tw_t2s": "PASS",
     "Windows_installation": "NOT_TESTED",
     "remaining_native_build": "jieba_fast requires a C compiler; source setup reviewed"
+  },
+  "resampy_runtime_v1_11": {
+    "direct_dependency": "resampy==0.4.3 with numpy<2.0",
+    "Linux_package_filter_and_48k_to_16k_resampling": "PASS",
+    "doctor_import_and_kaiser_best_check": "added",
+    "Windows_real_voice_inference": "NOT_TESTED"
   }
 }

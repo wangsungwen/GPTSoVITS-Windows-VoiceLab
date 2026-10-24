@@ -177,6 +177,7 @@ sys.exit(0 if valid else 1)
         Write-Host '[6/6] Configuring and checking CUDA, dependencies and model files.'
         # Match torchaudio to the torch build installed by the official installer.
         Run-Python -CommandArgs @("$PSScriptRoot\finish_install.py",'--repo',$Repo,'--device',$Device)
+        Run-Python -CommandArgs @('-m','pip','install','-r',"$PSScriptRoot\runtime-requirements.txt")
         Run-Python -CommandArgs @("$PSScriptRoot\doctor.py",'--repo',$Repo,'--require-cuda')
         Run-Python -CommandArgs @("$PSScriptRoot\opencc_windows.py",'check')
         Run-Python -CommandArgs @("$PSScriptRoot\webui_smoke.py")

@@ -1,0 +1,3 @@
+# Direct dependency used by TTS_infer_pack/TTS.py GPU reference-audio resampler.
+resampy==0.4.3
+numpy<2.0
