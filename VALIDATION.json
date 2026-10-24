@@ -43,7 +43,7 @@
     },
     "Windows_GPTSoVITS_UI_and_models": "NOT_TESTED"
   },
-  "kit_version": "1.12",
+  "kit_version": "1.13",
   "user_report_2026_10_24": {
     "install_checks": "PASSED (user log)",
     "webui_repair_checks": "PASSED (user log)",
@@ -114,5 +114,13 @@
     "installer_step_order_and_cmd_exit_paths": "PASS (static checks)",
     "package_file_and_zip_integrity": "PASS (76 whitelisted files, explicit directory entries, byte comparison and ZIP CRC)",
     "Windows_fresh_install": "NOT_TESTED after integration"
+  },
+  "workflow_completion_user_report_2026_10_24": {
+    "reference_check": "Validated 14 jobs and reference 7.00s (user log)",
+    "batch_api_issue": "HTTP 400 missing resampy; targeted pip installation instructed",
+    "video_issue": "existing output protected; timestamped output instructed",
+    "completion": "User confirmed 完成了 after video instructions",
+    "independent_audio_video_inspection": "NOT_PERFORMED",
+    "fresh_install_v1_13_and_new_startup_code": "NOT_TESTED; execution environment unavailable"
   }
 }

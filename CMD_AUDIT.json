@@ -1,5 +1,5 @@
 {
-  "version": "1.12",
+  "version": "1.13",
   "date": "2026-10-24",
   "cmd_static_checks": [
     {
@@ -74,7 +74,12 @@
     "repair_openjtalk.ps1": "0786aa096903013076c75ad75c7ae4fb8c861ef7b0c9cdd17938b4858ab78a9d",
     "repair_webui.ps1": "66c5e99fc209ec9cfb32565746926a7a24134489f6c9066b4444ab5c52df0504",
     "runtime-requirements.txt": "a53ed36f4335322dfe63fbec5e94354af5f1c728f5a760b215630dee5dd7ffd5",
-    "start.ps1": "00d12eaa632f7196a5e0e315aef74691330bceb834a51bd14524a8b1bd2c0c94",
     "webui_smoke.py": "d4bbb04943de9915a42a7d5ee78c5eea951a509496bde61550f12cec98d0515b"
-  }
+  },
+  "start_ps1_v1_13": {
+    "sha256": "not recalculated; omitted to avoid retaining v1.12 hash",
+    "review": "resampy preflight uses isolated Python; video collision chooses timestamp plus GUID; no forced overwrite",
+    "execution": "NOT_TESTED: execution environment unavailable"
+  },
+  "prior_checks_scope": "Existing test results describe earlier revisions of unchanged files; not a new Windows execution test."
 }
